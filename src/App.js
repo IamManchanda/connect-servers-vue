@@ -6,20 +6,18 @@ export default {
         name: '',
         email: '' 
       },
-      users: []
+      users: [],
+      resource: {}
     };
   },
   methods: {
     // Sweet and easy Firebase database connection thanks to VueResource!
     postFormSubmitted() {
-      this.$http.post('', this.user)
-                .then(response => { 
-                  console.log(response); 
-                });
+      this.resource.save({}, this.user);
     },
     getFormSubmitted() {
       this.show = true;
-      this.$http.get('')
+      this.$http.get('data.json')
                 .then(response => { 
                   return response.json(); 
                 })
@@ -32,5 +30,8 @@ export default {
                   console.log(this.users);
                 });
     }
+  },
+  created() {
+    this.resource = this.$resource('data.json');
   }
 };
