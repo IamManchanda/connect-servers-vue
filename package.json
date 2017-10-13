@@ -1,6 +1,6 @@
 {
   "name": "connect-servers-vue",
-  "description": "Connecting Servers in Vue.js, Vue Resource",
+  "description": "Connecting Servers in Vue.js, Vue Resource and Firebase",
   "version": "1.0.0",
   "author": "harry <harmanmanchanda182@gmail.com>",
   "private": true,

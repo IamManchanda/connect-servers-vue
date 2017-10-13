@@ -10,8 +10,7 @@ export default {
     };
   },
   methods: {
-    // Sweet and easy Firebase database connection!
-    // thanks to VueResource!
+    // Sweet and easy Firebase database connection thanks to VueResource!
     postFormSubmitted() {
       this.$http.post('', this.user)
                 .then(response => { 
