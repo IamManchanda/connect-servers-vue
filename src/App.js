@@ -7,7 +7,8 @@ export default {
         email: '' 
       },
       users: [],
-      resource: {}
+      resource: {},
+      node: 'data'
     };
   },
   methods: {
@@ -17,24 +18,25 @@ export default {
     },
     getFormSubmitted() {
       this.show = true;
-      this.$http.get('data.json')
-                .then(response => { 
-                  return response.json(); 
-                })
-                .then(data => {
-                  const resultArray = [];
-                  for (let key in data) {
-                    resultArray.push(data[key]);
-                  }
-                  this.users = resultArray;
-                  console.log(this.users);
-                });
+      this.resource.getData({node: this.node})
+                   .then(response => { 
+                      return response.json(); 
+                   })
+                   .then(data => {
+                      const resultArray = [];
+                      for (let key in data) {
+                        resultArray.push(data[key]);
+                   }
+                      this.users = resultArray;
+                      console.log(this.users);
+                   });
     }
   },
   created() {
     const customActions = {
-      saveAlt: {method: 'POST', url: 'alternative.json'}
+      saveAlt: {method: 'POST', url: 'alternative.json'},
+      getData: {method: 'GET'}
     };
-    this.resource = this.$resource('data.json', {}, customActions);
+    this.resource = this.$resource('{node}.json', {}, customActions);
   }
 };

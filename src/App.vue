@@ -19,10 +19,19 @@
             </div>
             <div class="grid-x grid-margin-x align-center">
               <div class="medium-5 cell">
-                <div class="expanded button-group">
-                  <input type="submit" value="Submit" class="button primary radius" @click.prevent="postFormSubmitted">
-                  <input type="submit" value="Get Data" class="button primary radius hollow" @click.prevent="getFormSubmitted">
-                </div>
+                <input type="submit" value="Submit" class="button primary radius expanded" @click.prevent="postFormSubmitted">
+              </div>
+            </div>
+            <div class="grid-x grid-margin-x align-center">
+              <div class="medium-12 cell">
+                <label> Data Store
+                  <input type="text" v-model="node">
+                </label>
+              </div>
+            </div>
+            <div class="grid-x grid-margin-x align-center">
+              <div class="medium-5 cell">
+                <input type="submit" value="Get Data" class="button primary radius hollow expanded" @click.prevent="getFormSubmitted">
               </div>
             </div>
             <div class="grid-x grid-margin-x align-center">
